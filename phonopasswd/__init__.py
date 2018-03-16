@@ -4,6 +4,9 @@
 from random import choice
 
 
+__version__ = '1.0'
+
+
 VOWELS = ('a', 'e', 'i', 'o', 'u', 'ea', 'ou')
 CONSOLANTS = tuple('bcdfghjklmnpqrstvwxyz')
 DIGRAPHS_FIRST = ('sc', 'ch', 'tch', 'sch', 'gh', 'ph', 'rh', 'sh', 'th', 'wh',
