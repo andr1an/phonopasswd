@@ -1,5 +1,4 @@
-phonopasswd
-===========
+# phonopasswd
 
 [![Build Status](https://travis-ci.org/andr1an/phonopasswd.svg?branch=master)](https://travis-ci.org/andr1an/phonopasswd)
 
@@ -24,10 +23,16 @@ Command `phonopasswd` is now available on the command line. Also you could use
 the generator in your Python projects:
 
 ```python
->>> from phonopasswd import generate_password
->>> generate_password()
+>>> from phonopasswd import PhonoPasswd
+>>> passwordgen = PhonoPasswd(language="en")
+>>> passwordgen.generate_password()
 'Zim-Ruck_Saph'
 ```
+
+## Language support
+
+Currently multiple languages support is in development. The one fully supported
+language is `en`, also `it` and `de` are supported partially.
 
 ## Contributing
 
