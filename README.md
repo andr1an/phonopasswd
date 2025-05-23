@@ -1,26 +1,48 @@
 # phonopasswd
 
-[![Build Status](https://app.travis-ci.com/andr1an/phonopasswd.svg?branch=master)](https://app.travis-ci.com/andr1an/phonopasswd)
+![build status](https://github.com/andr1an/phonopasswd/actions/workflows/tests.yaml/badge.svg)
 
-Phonetic passwords generator written in Python.
+Phonetic password generator in Python.
 
-Generated passwords are quite secure and easy to remember:
+Passwords composed of random character sequences are often hard to remember
+because they could not be pronounced like real words. Phonopasswd generates
+passwords based on the syllable-building rules of a selected language, making
+them easier to recall. Examples:
 
-    Pock-Heth_Ris
-    SeamBuy1Jok
-    Koy0Wred_Tash
+```
+# English
+Pock-Heth_Ris
+SeamBuy1Jok
 
-*WARNING! Do NOT use any of the passwords above for securing your accounts,
-services etc!*
+# French
+Bun-OivLyq
+Won-RierdAup
+
+# German
+PfeufTaw6Liv
+Schwus_Pfeiq-Rog
+```
+
+*WARNING! Do not use any of the passwords above for securing your personal or
+business accounts!*
 
 ## Installation
 
-The simplest way is to use `pip`:
+The package is not published into PyPI, but you can use `pip` with URL:
 
-    pip install git+https://github.com/andr1an/phonopasswd.git
+```bash
+pip install git+https://github.com/andr1an/phonopasswd.git
+```
 
-Command `phonopasswd` is now available on the command line. Also you could use
-the generator in your Python projects:
+## Usage
+
+The package includes CLI tool `phonopasswd`:
+
+```
+phonopasswd [-h] [-l|--language {en,it,de,fr}] [-V|--version]
+```
+
+Also you can use the generator in your Python projects:
 
 ```python
 >>> from phonopasswd import PhonoPasswd
@@ -31,8 +53,13 @@ the generator in your Python projects:
 
 ## Language support
 
-Currently multiple languages support is in development. The one fully supported
-language is `en`, also `it` and `de` are supported partially.
+The generator supports various syllable structures based on language-specific
+rules. The currently supported languages are:
+
+ * `en`
+ * `fr`
+ * `it`
+ * `de`
 
 ## Contributing
 

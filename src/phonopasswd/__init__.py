@@ -1,7 +1,6 @@
-#!/usr/bin/env python
-"""Phonetic passwords generator."""
+#!/usr/bin/env python3
+"""Phonetic password generator."""
 
-from __future__ import print_function
 from random import choice
 import argparse
 import sys
@@ -9,21 +8,24 @@ import sys
 from phonopasswd import languages
 
 
-__version__ = "1.1"
+__version__ = "2.0.0"
+
+
+LANGUAGE_CLASSES = {
+    "en": languages.English,
+    "it": languages.Italian,
+    "de": languages.German,
+    "fr": languages.French,
+}
 
 
 class PhonoPasswd(object):
-    """Main aplication class."""
+    """Main application class."""
 
     def __init__(self, language="en"):
-        language_classes = {
-            "en": languages.English,
-            "it": languages.Italian,
-            "de": languages.German,
-        }
-        if language not in language_classes:
+        if language not in LANGUAGE_CLASSES:
             raise NotImplementedError("This language is not supported")
-        self.language_class = language_classes[language]
+        self.language_class = LANGUAGE_CLASSES[language]
 
     def _syllable(self):
         """Returns a random syllable."""
@@ -58,15 +60,22 @@ def main(argv=sys.argv[1:]):
         "--language",
         "-l",
         help="Language",
-        choices=("en", "it", "de"),
+        choices=LANGUAGE_CLASSES.keys(),
         default="en",
     )
+    parser.add_argument(
+        "--version",
+        "-V",
+        help="Print version and exit",
+        action="store_true",
+    )
     args = parser.parse_args(argv)
+    if args.version:
+        print(__version__)
+        sys.exit(0)
     app = PhonoPasswd(args.language)
     print(app.generate_password())
 
 
 if __name__ == "__main__":
     main()
-
-# vim: ts=4:sw=4:et:sta:si
