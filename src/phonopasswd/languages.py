@@ -75,16 +75,23 @@ class German:
 class French:
     _CONSONANTS = tuple("bcdfghjklmnpqrstvwxz")
     _VOWELS = ("a", "e", "i", "o", "u", "y")
-    _DIPHTHONGS = (
-        "ai", "au", "ei", "eu", "ie", "oi", "ou", "ui", "ue"
-    )
+    _DIPHTHONGS = ("ai", "au", "ei", "eu", "ie", "oi", "ou", "ui", "ue")
     _NASALS = ("an", "en", "in", "on", "un", "yn", "ain", "ien", "oin")
 
-    _DIGRAPHS_FIRST = (
-        "ch", "gn", "ph", "qu"
-    )
+    _DIGRAPHS_FIRST = ("ch", "gn", "ph", "qu")
     _DIGRAPHS_LAST = (
-        "ch", "gn", "ph", "qu", "ct", "rt", "nt", "rd", "rs", "lt", "mp", "nd"
+        "ch",
+        "gn",
+        "ph",
+        "qu",
+        "ct",
+        "rt",
+        "nt",
+        "rd",
+        "rs",
+        "lt",
+        "mp",
+        "nd",
     )
 
     # Public constant
@@ -92,7 +99,7 @@ class French:
         (
             _CONSONANTS + _DIGRAPHS_FIRST,
             _VOWELS + _DIPHTHONGS + _NASALS,
-            _CONSONANTS + _DIGRAPHS_LAST
+            _CONSONANTS + _DIGRAPHS_LAST,
         ),
         (_CONSONANTS, _NASALS),
         (_DIPHTHONGS, _CONSONANTS),
